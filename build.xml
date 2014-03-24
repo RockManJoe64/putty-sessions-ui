@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<project name="putty-ui">
+	
+	<property name="launch4j.dir" location="C:/Users/chavez.j/Apps/launch4j" />
+	
+	<target name="maven-package" depends="launch4j, deploy" />
+	
+	<target name="launch4j">
+		<taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask" classpath="${launch4j.dir}/launch4j.jar;${launch4j.dir}/lib/xstream.jar" />
+		<launch4j configFile="${basedir}/src/main/launch4j/launch4j.xml" />
+	</target>
+	
+	<target name="deploy">
+		<copy todir="${basedir}/target/deploy">
+			<fileset dir="${basedir}/target">
+				<include name="*.jar" />
+				<include name="*.exe" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="test">
+		<echo message="compile classpath: ${compile-classpath}" />
+		<echo message="runtime classpath: ${runtime-classpath}" />
+		<echo message="test classpath:    ${test-classpath}" />
+		<echo message="plugin classpath:  ${plugin-classpath}" />
+	</target>
+	
+</project>
