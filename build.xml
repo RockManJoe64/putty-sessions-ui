@@ -17,6 +17,7 @@
 				<include name="*.exe" />
 			</fileset>
 		</copy>
+		<copy file="${basedir}/src/main/webstart/application.xml" tofile="${basedir}/target/deploy/putty-sessions.jnlp"/>
 	</target>
 	
 	<target name="test">
